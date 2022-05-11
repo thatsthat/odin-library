@@ -26,12 +26,11 @@ form {
   flex-direction: row;
   background-color: white;
   padding-left: 4vw;
-  box-shadow: var(--cool-shadow);
+  box-shadow: #cbd0d8 1.95px 1.95px 2.6px;
 }
 legend {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-size: large;
   font-weight: bold;
 }
 fieldset {
@@ -42,7 +41,7 @@ fieldset {
 }
 label {
   text-transform: uppercase;
-  font-size: x-small;
+  font-size: small;
 }
 
 input:not([type="radio"]) {
@@ -62,7 +61,18 @@ input:invalid {
   border: 1px solid red;
 }
 input:focus {
-  box-shadow: var(--cool-shadow);
+  box-shadow: #cbd0d8 1.95px 1.95px 2.6px;
   outline: 1px solid blue;
   border: 1px solid blue;
+}
+#button-submit {
+  background-color: #596d48;
+  color: white;
+  border: 0px solid;
+  border-radius: 4px;
+  padding: 10px 35px;
+  box-shadow: #cbd0d8 1.95px 1.95px 2.6px;
+}
+#save-book {
+  margin: 2vw 0%;
 }

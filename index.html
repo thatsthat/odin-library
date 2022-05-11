@@ -24,19 +24,22 @@
           <input type="text" id="title" name="title">
 
           <label for="author">Author</label>
-          <input type="email" id="author" name="author" equired>
+          <input type="text" id="author" name="author" equired>
 
           <label for="pages">Number of pages</label>
-          <input type="password" id="pages" name="pages">
+          <input type="number" id="pages" name="pages">
 
           <label for="read">Have you read it?</label> <br>
           <div>
-            <input type="radio" id="new-book" name="read" value="yes" checked>
+            <input type="radio" id="new-book" name="read" value="true" checked>
             <label for="read">Yes</label>
           </div>
           <div>
-            <input type="radio" id="new-book" name="read" value="no" checked>
+            <input type="radio" id="new-book" name="read" value="false" checked>
             <label for="read">No</label>
+          </div>
+          <div id="save-book">
+            <button type="submit" form='new-book' id="button-submit">Save</button>
           </div>
 
         </fieldset>

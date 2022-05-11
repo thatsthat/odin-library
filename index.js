@@ -8,14 +8,39 @@ myLibrary.push(book2);
 // Variable that stores the displayed books
 const shelve = document.querySelector("#books");
 
-myLibrary.forEach((book) => {
+// Show details of each book in myLibrary
+myLibrary.forEach((book) => addBookInfo(book));
+
+function addBookInfo(book) {
   const bookInfo = document.createElement("div");
   bookInfo.classList.add("book");
   bookInfo.textContent = book.info();
   shelve.appendChild(bookInfo);
-});
+}
 
-// Show details of each book in myLibrary
+document.forms["new-book"].addEventListener("submit", (event) => {
+  event.preventDefault();
+  // TODO do something here to show user that form is being submitted
+  fetch(event.target.action, {
+    method: "POST",
+    body: new URLSearchParams(new FormData(event.target)), // event.target is the form
+  })
+    .then((resp) => {
+      return resp.json(); // or resp.text() or whatever the server sends
+    })
+    .then((body) => {
+      const newBook = new Book(
+        body.form.title,
+        body.form.author,
+        body.form.pages,
+        body.form.read
+      );
+      addBookInfo(newBook);
+    })
+    .catch((error) => {
+      // TODO handle error
+    });
+});
 
 function Book(title, author, pages, iveRead) {
   this.title = title;
