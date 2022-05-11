@@ -10,6 +10,7 @@ const shelve = document.querySelector("#container");
 
 myLibrary.forEach((book) => {
   const bookInfo = document.createElement("div");
+  bookInfo.classList.add("book");
   bookInfo.textContent = book.info();
   shelve.appendChild(bookInfo);
 });
@@ -22,7 +23,7 @@ function Book(title, author, pages, iveRead) {
   this.pages = pages;
   this.iveRead = iveRead;
   this.info = function () {
-    return `${this.title} by ${this.title}, ${pages}, Read:${this.iveRead}`;
+    return `${this.title} by ${this.author}, ${pages}, Read:${this.iveRead}`;
   };
 }
 
