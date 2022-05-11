@@ -1,8 +1,18 @@
+* {
+  font-family: "Roboto";
+  font-size: 16px;
+}
 #container {
   display: flex;
   flex: 0 0 auto;
 }
-
+#new-book-modal {
+}
+#books {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 .book {
   width: 15vw;
   background-color: #f3f3f3;
@@ -10,4 +20,49 @@
   box-shadow: #cbd0d8 1.95px 1.95px 2.6px;
   padding: 2vw;
   margin: 2vw;
+}
+form {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding-left: 4vw;
+  box-shadow: var(--cool-shadow);
+}
+legend {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: large;
+  font-weight: bold;
+}
+fieldset {
+  border: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+label {
+  text-transform: uppercase;
+  font-size: x-small;
+}
+
+input:not([type="radio"]) {
+  display: flex;
+  flex-direction: column;
+  width: 18vw;
+  height: 2.5vh;
+  margin-bottom: 1rem;
+  margin-right: 3rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 3px;
+}
+input:valid {
+  border: 1px solid green;
+}
+input:invalid {
+  border: 1px solid red;
+}
+input:focus {
+  box-shadow: var(--cool-shadow);
+  outline: 1px solid blue;
+  border: 1px solid blue;
 }

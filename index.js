@@ -6,7 +6,7 @@ const book2 = new Book("The Martian", "Andy Weiss", "353", false);
 myLibrary.push(book2);
 
 // Variable that stores the displayed books
-const shelve = document.querySelector("#container");
+const shelve = document.querySelector("#books");
 
 myLibrary.forEach((book) => {
   const bookInfo = document.createElement("div");
