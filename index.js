@@ -9,7 +9,7 @@ myLibrary.push(book2);
 const shelve = document.querySelector("#books");
 
 // Show details of each book in myLibrary
-myLibrary.forEach((book) => addBookInfo(book));
+myLibrary.forEach((book, index) => addBookInfo(book, index));
 
 document.forms["new-book"].addEventListener("submit", (event) => {
   event.preventDefault();
@@ -46,13 +46,14 @@ allButtons.forEach((button) =>
 function handleButtons(button) {
   if (button.textContent === "Remove") {
     button.parentElement.parentElement.remove();
+  } else {
   }
 }
 
-function addBookInfo(book) {
-  const bookInfo = document.createElement("div");
-  bookInfo.classList.add("book");
-  bookInfo.textContent = book.info();
+function addBookInfo(newBook, bookInd) {
+  const book = document.createElement("div");
+  bookI.classList.add("book");
+  bookInfo.textContent = newBook.info();
   // Create container for buttons
   const bookButtons = document.createElement("div");
   bookButtons.classList.add("bookButtons");
