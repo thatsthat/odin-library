@@ -76,3 +76,31 @@ input:focus {
 #save-book {
   margin: 2vw 0%;
 }
+.delBook {
+  display: block;
+  font-size: x-small;
+  background-color: red;
+  width: fit-content;
+  margin-top: 2vh;
+  color: white;
+  border: 0px solid;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: #cbd0d8 1.95px 1.95px 2.6px;
+}
+.bookRead {
+  display: block;
+  font-size: x-small;
+  background-color: gray;
+  width: fit-content;
+  margin-top: 2vh;
+  color: white;
+  border: 0px solid;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: #cbd0d8 1.95px 1.95px 2.6px;
+}
+.bookButtons {
+  display: flex;
+  gap: 1vw;
+}

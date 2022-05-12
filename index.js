@@ -1,8 +1,8 @@
 let myLibrary = [];
 
-const book1 = new Book("Lord of the Rings", "J.R.R. Tolkien", "425", true);
+const book1 = new Book("Lord of the Rings", "J.R.R. Tolkien", "425", "Read");
 myLibrary.push(book1);
-const book2 = new Book("The Martian", "Andy Weiss", "353", false);
+const book2 = new Book("The Martian", "Andy Weiss", "353", "Not read");
 myLibrary.push(book2);
 
 // Variable that stores the displayed books
@@ -15,6 +15,20 @@ function addBookInfo(book) {
   const bookInfo = document.createElement("div");
   bookInfo.classList.add("book");
   bookInfo.textContent = book.info();
+  // Create container for buttons
+  const bookButtons = document.createElement("div");
+  bookButtons.classList.add("bookButtons");
+  // Create button allowing user to delete book from shelve
+  const delBook = document.createElement("button");
+  delBook.classList.add("delBook");
+  delBook.textContent = "Remove";
+  bookButtons.appendChild(delBook);
+  // Create button allowing user to toggle read/unread book status
+  const bookRead = document.createElement("button");
+  bookRead.classList.add("bookRead");
+  bookRead.textContent = "Unread";
+  bookButtons.appendChild(bookRead);
+  bookInfo.appendChild(bookButtons);
   shelve.appendChild(bookInfo);
 }
 
@@ -48,7 +62,7 @@ function Book(title, author, pages, iveRead) {
   this.pages = pages;
   this.iveRead = iveRead;
   this.info = function () {
-    return `${this.title} by ${this.author}, ${pages}, Read:${this.iveRead}`;
+    return `${this.title} by ${this.author}, ${pages} pages, ${this.iveRead}`;
   };
 }
 
