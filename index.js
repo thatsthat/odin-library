@@ -1,15 +1,5 @@
-let myLibrary = [];
-
-const book1 = new Book("Lord of the Rings", "J.R.R. Tolkien", "425", "Read");
-myLibrary.push(book1);
-const book2 = new Book("The Martian", "Andy Weiss", "353", "Not read");
-myLibrary.push(book2);
-
 // Variable that stores the displayed books
 const shelve = document.querySelector("#books");
-
-// Show details of each book in myLibrary
-myLibrary.forEach((book, index) => addBookInfo(book, index));
 
 document.forms["new-book"].addEventListener("submit", (event) => {
   event.preventDefault();
@@ -46,14 +36,17 @@ allButtons.forEach((button) =>
 function handleButtons(button) {
   if (button.textContent === "Remove") {
     button.parentElement.parentElement.remove();
-  } else {
+  } else if (button.textContent === "Read") {
+    button.textContent = "Unread";
+  } else if (button.textContent === "Unread") {
+    button.textContent = "Read";
   }
 }
 
-function addBookInfo(newBook, bookInd) {
+function addBookInfo(newBook) {
   const book = document.createElement("div");
-  bookI.classList.add("book");
-  bookInfo.textContent = newBook.info();
+  book.classList.add("book");
+  book.textContent = newBook.info();
   // Create container for buttons
   const bookButtons = document.createElement("div");
   bookButtons.classList.add("bookButtons");
@@ -73,8 +66,8 @@ function addBookInfo(newBook, bookInd) {
     handleButtons(event.target);
   });
   bookButtons.appendChild(bookRead);
-  bookInfo.appendChild(bookButtons);
-  shelve.appendChild(bookInfo);
+  book.appendChild(bookButtons);
+  shelve.appendChild(book);
 }
 
 function Book(title, author, pages, iveRead) {
