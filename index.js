@@ -3,26 +3,36 @@ const shelve = document.querySelector("#books");
 
 document.forms["new-book"].addEventListener("submit", (event) => {
   event.preventDefault();
-  // TODO do something here to show user that form is being submitted
-  fetch(event.target.action, {
-    method: "POST",
-    body: new URLSearchParams(new FormData(event.target)), // event.target is the form
-  })
-    .then((resp) => {
-      return resp.json(); // or resp.text() or whatever the server sends
+
+  const author = document.getElementById("author");
+  const authorError = document.querySelector("#author + span.error");
+  if (author.validity.patternMismatch) {
+    //author.setCustomValidity("Author name can't contain numbers");
+    authorError.textContent = "Author name can't contain numbers";
+    authorError.className = "error active";
+    //author.parentNode.insertBefore(message, author.nextSibling);
+  } else {
+    authorError.textContent = "";
+    fetch(event.target.action, {
+      method: "POST",
+      body: new URLSearchParams(new FormData(event.target)), // event.target is the form
     })
-    .then((body) => {
-      const newBook = new Book(
-        body.form.title,
-        body.form.author,
-        body.form.pages,
-        body.form.read
-      );
-      addBookInfo(newBook);
-    })
-    .catch((error) => {
-      // TODO handle error
-    });
+      .then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      })
+      .then((body) => {
+        const newBook = new Book(
+          body.form.title,
+          body.form.author,
+          body.form.pages,
+          body.form.read
+        );
+        addBookInfo(newBook);
+      })
+      .catch((error) => {
+        // TODO handle error
+      });
+  }
 });
 
 // Add an event listener to each button

@@ -13,10 +13,8 @@
 
 <body>
   <div id="container">
-    <div id="books"></div>
-
     <div id="new-book-modal">
-      <form id='new-book' action="http://httpbin.org/post" method="post">
+      <form id='new-book' action="http://httpbin.org/post" method="post" novalidate>
         <fieldset>
           <legend>Please enter the new book's data:</legend>
 
@@ -24,18 +22,19 @@
           <input type="text" id="title" name="title">
 
           <label for="author">Author</label>
-          <input type="text" id="author" name="author" required>
+          <input type="text" id="author" name="author" pattern="^[a-zA-Z\s]*$" required>
+          <span class="error" aria-live="polite"></span>
 
           <label for="pages">Number of pages</label>
-          <input type="number" id="pages" name="pages">
+          <input type="number" id="pages" name="pages" min="1" required>
 
           <label for="read">Have you read it?</label> <br>
           <div>
-            <input type="radio" id="new-book" name="read" value="Read" checked>
+            <input type="radio" id="new-book" name="read" value="Read" required>
             <label for="read">Yes</label>
           </div>
           <div>
-            <input type="radio" id="new-book" name="read" value="Not read" checked>
+            <input type="radio" id="new-book" name="read" value="Not read" required>
             <label for="read">No</label>
           </div>
           <div id="save-book">
@@ -45,6 +44,7 @@
         </fieldset>
       </form>
     </div>
+    <div id="books"></div>
   </div>
   <script src="index.js" defer></script>
 </body>

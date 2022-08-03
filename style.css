@@ -104,3 +104,17 @@ input:focus {
   display: flex;
   gap: 1vw;
 }
+.error {
+  width: 100%;
+  padding: 0;
+  height: 5vh;
+  font-size: 80%;
+  color: red;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
